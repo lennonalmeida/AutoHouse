@@ -9,27 +9,37 @@ package codes;
  *
  * @author lennon
  */
-public class Room{
+public class Room extends House{
 	private boolean sound = false, windows = false, light = false, tv = false;
 	
-	void setSound(boolean energy){
-		if (energy == true)
-			this.sound = !this.sound;
+	public void setSound(boolean sound){
+        	this.sound = sound;
 	}
-	void setWindows(boolean energy, boolean windowsAll){
-		if (energy == true && windowsAll == true)
-			this.windows = !this.windows;		
+	public void setWindow(boolean windows){
+		this.windows = windows;		
 	}
-	void setTV(boolean energy){
-		if (energy == true)
-			this.tv = !this.tv;	
+	public void setTV(boolean tv){
+        	this.tv = tv;	
 	}
-	void setLight(boolean energy){
-		if (energy == true)
-			this.light = !this.light;
+        @Override
+	public void setLight(boolean light){
+        	this.light = light;
 	}
-	
-	
-	
-	
+        public boolean getWindow(){
+            return this.windows;
+        }
+        @Override
+        public boolean getLight(){
+            return this.light;
+        }
+        @Override
+        public boolean mudaLuz(boolean atual){
+            boolean light = !atual;
+            return light;
+        }
+        
+        public boolean mudaJanela(boolean atual){
+            boolean janela = !atual;
+            return janela;
+        }
 }

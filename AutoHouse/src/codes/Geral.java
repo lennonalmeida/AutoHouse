@@ -9,36 +9,33 @@ package codes;
  *
  * @author lennon
  */
-public abstract class House{
-    	private boolean alarm = false, gate = true, luz = false;
-        public void setLight(boolean light){
-        	this.luz = light;
-	}
-	public boolean getLight(){
-            return this.luz;
-        }
-        public boolean mudaLuz(boolean atual){
-            boolean light = !atual;
-            return light;
-        }
+public class Geral extends House{
+    private boolean alarm = false, gate = true;
         
+	
+    @Override
 	public void setAlarm(boolean alarm){
 		this.alarm = alarm;		
 	}
+    @Override
 	public void setGate(boolean gate){
 		this.gate = gate;		
 	}
+    @Override
 	public boolean getAlarm(){
             return this.alarm;
         }
+    @Override
         public boolean getGate(){
             return this.gate;
         }
         //mudanças
+    @Override
         public boolean mudaPortao(boolean atual){
             boolean gate = !atual;
             return gate;
         }
+    @Override
         public boolean mudaAlarme(boolean atual){
             boolean alarme = !atual;
             return alarme;

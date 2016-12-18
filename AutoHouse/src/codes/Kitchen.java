@@ -5,29 +5,85 @@
  */
 package codes;
 
+import GUI.TelaAlarme;
+
 /**
  *
  * @author lennon
  */
-public class Kitchen{
+public class Kitchen extends House{
 	private boolean eletricOven = false, alarm = false, light = false, refrigerator = false;
+        private short temperature, time, temprefri;
 	
-	void setEletricOven(boolean energy){
-		if (energy == true)
-			this.eletricOven = !this.eletricOven;
+	public void setEletricOven(boolean forno){
+		this.eletricOven = forno;
 	}
-	void setAlarm(boolean energy){
-		if (energy == true)
-			this.alarm = !this.alarm;		
+        public boolean getEletricOven(){
+            return this.eletricOven;
+        }
+        public void setTemperature(short temp){
+            this.temperature = temp;
+        }
+        public short getTemperature(){
+            return this.temperature;
+        }
+        
+        public void setTime(short time){
+            this.time = time;
+        }
+        public short getTime(){
+            return this.time;
+        }
+                
+        @Override
+	public void setAlarm(boolean alarme){
+		this.alarm = alarme;		
 	}
-	void setRefrigerator(boolean energy){
-		if (energy == true)
-			this.refrigerator = !this.refrigerator;	
+        @Override
+        public boolean getAlarm(){
+            return this.alarm;
+        }
+        public boolean mudaAlarm(boolean atual){
+            boolean alarme = !atual;
+            return alarme;
+        }
+        public boolean alarme(short temperatura, short time){
+            boolean active = false;
+            
+            if (temperatura > 50 && time > 3)
+                active = true;
+            
+            
+            return active;
+        }
+        
+        
+        
+	public void setRefrigerator(boolean refrigerator){
+		this.refrigerator = refrigerator;	
 	}
-	void setLight(boolean energy){
-		if (energy == true)
-			this.light = !this.light;
+        public boolean getRefrigerator(){
+            return this.refrigerator;
+        }
+        public boolean mudaRefrigerator(boolean atual){
+            boolean refrigerator = !atual;
+            return refrigerator;
+        }
+        public void setTemp(short temp){
+            this.temprefri =  temp;
+        }
+        public short getTemp(){
+            return this.temprefri;
+        }
+        
+	public void setLight(boolean luz){
+		this.light = luz;
 	}
-	
-	
+        public boolean getLight(){
+            return this.light;
+        }
+        public boolean mudaLight(boolean light){
+            boolean luz = !light;
+            return luz;
+        }
 }
